@@ -4,12 +4,17 @@ import { AiOutlineClose } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import "./navbar.scss";
 import getPlayersDetails from '../../actions/GetPlayerDetails.Action';
-import { useSelector, useDispatch } from "react-redux";
+import { connect, useSelector, useDispatch } from "react-redux";
+import axios from 'axios';
+import DisplayDetails from "../DisplayDetails/DisplayDetails";
 
 const Navbar=(e:any)=> {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [startingPage,setStartingPage] = useState(0);
+  const [pageLimit,setPageLimit] = useState(25);
+  const [playerDetails,setPlayerDetails] = useState([] as any);
   const [size, setSize] = useState({
     width: 0,
     height: 0,
@@ -38,7 +43,22 @@ const Navbar=(e:any)=> {
   const handleClickEvent=(e:any) =>{
     const request = {     
     }
-    dispatch(getPlayersDetails(request));
+    const options = {
+        method: 'GET',
+       // url: 'https://free-nba.p.rapidapi.com/players?page='+startingPage+'&per_page='+pageLimit,
+       url : 'https://free-nba.p.rapidapi.com/teams?page=0',
+        headers: {
+          'X-RapidAPI-Key': 'c500b4106dmshbc6109fd0ccf3eep144eb6jsn9c10644513a1',
+          'X-RapidAPI-Host': 'free-nba.p.rapidapi.com'
+        }
+      };
+      
+      axios.request(options).then(function (response:any) {
+        setPlayerDetails(response.data);
+        console.log('response',response.data);
+      }).catch(function (error:any) {
+          console.error(error);
+      });
   }
 
   return (
@@ -83,7 +103,12 @@ const Navbar=(e:any)=> {
         </div>
       </div>
     </header>
+    
   );
+
+<DisplayDetails playerDetails={playerDetails} />
 }
 
-export default Navbar;
+
+
+export default connect()(Navbar);

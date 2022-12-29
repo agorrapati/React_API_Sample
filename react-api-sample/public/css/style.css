@@ -25,6 +25,13 @@ html{
  
 }
 
+
+.detail-content-section{
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 2px 5px 0 rgb(50,50,50,.05);
+}
+
 .login-box{
   position: absolute;
   top:50%;
@@ -121,13 +128,7 @@ hr {
 h1{
     margin: 12px;
 }
-.container {
-  max-width: 800px; 
-  margin: 1em auto; 
-  background:rgb(237, 243, 153); 
-  padding:30px;
-  border-radius:5px;
-}
+
 .modal-content .modal-body{
   max-height: 687px;
   overflow-y: auto;
@@ -374,4 +375,96 @@ h1{
   .modal-xl {
     max-width: 1140px;
   }
+}
+.table{
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  background-color: transparent;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.basic-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px !important;
+}
+.basic-table th,.basic-table td{
+  line-height: 2em;
+  position: relative;
+  white-space: nowrap;
+}
+.basic-table thead {
+  height: .2em;
+}
+.basic-table thead tr {
+  background: #000;
+  color: #fff;
+}
+.basic-table thead tr th {
+  border-bottom: none;
+  font-weight: normal;
+}
+.basic-table thead tr th:first-of-type{
+  border-radius: 2px 0 0 0 ;
+}
+.basic-table thead tr th:last-of-type{
+  border-radius: 0 2px 0 0 ;
+}
+.basic-table thead tr th:first-of-type, .basic-table tbody tr th:first-of-type{
+  padding-left: 1em;
+}
+.basic-table thead tr th:last-of-type, .basic-table tbody tr th:last-of-type{
+  padding-right: 1em;
+}
+.basic-table tbody tr:last-of-type td:first-of-type{
+  border-radius: 0 0 0 2px;
+}
+.basic-table tbody tr:last-of-type td:last-of-type{
+  border-radius: 0 0 2px 0;
+}
+.basic-table tbody tr{
+  background: #fff;
+}
+.basic-table tbody tr:not(.selected) :hover{
+  background: #e3f2fd;
+}
+.basic-table>caption{
+  font-weight: normal;
+  font-size: 14px;
+  color: #2196f3;
+  margin-bottom: 5px;
+}
+.basic-table.has-header-buttons thead tr th a.table-header-button{
+  color: #fff;
+  border-radius: 5px;
+  background: transparent;
+  font-weight: normal;
+  cursor: pointer;
+}
+.basic-table.has-header-buttons thead tr th a.table-header-button.selected{
+color: #000;
+background: #fff;
+padding:  .25em .5em;
+}
+.basic-table.has-header-buttons thead tr th a.table-header-button.selected:after{
+content: "\25bc";
+  font-size: 90%;
+margin-left: .25em;
+}
+.basic-table.has-header-buttons thead tr th a.table-header-button.selected.up:after{
+  content: "\25b2";
+}
+.has-row-menus thead tr th:last-of-type{
+  width: 30px;
+}
+.has-row-menus nav.context-menu{
+  position: absolute;
+  right: 1em;
+}
+.has-row-menus tbody tr nav.context-menu a.dropdown-toggle::before{
+  font-family: "Material Icons";
+  font-size: 16px;
+  content: "\E5D2";
+  color: #757575;
 }

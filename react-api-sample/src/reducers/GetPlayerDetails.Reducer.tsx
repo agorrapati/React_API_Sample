@@ -20,7 +20,9 @@ const getPlayersDetails = (state = initialState , action:any) =>{
             return { ...state ,stage:"success", isLoading:false, hasError:false, data:allData, err:null }
         case ACTION_TYPES.GET_PLAYER_DETAILS_REQUEST:
             return { ...state ,stage:"error", isLoading:false, hasError:true, err:action.payload }
-
+        
+        default:
+            return state;
     }
 }
 
