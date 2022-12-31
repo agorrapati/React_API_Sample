@@ -7,6 +7,7 @@ import getPlayersDetails from '../../actions/GetPlayerDetails.Action';
 import { connect, useSelector, useDispatch } from "react-redux";
 import axios from 'axios';
 import DisplayDetails from "../DisplayDetails/DisplayDetails";
+import { request } from "http";
 
 const Navbar=(e:any)=> {
   const navigate = useNavigate();
@@ -41,24 +42,10 @@ const Navbar=(e:any)=> {
     setMenuOpen((p) => !p);
   };
   const handleClickEvent=(e:any) =>{
-    const request = {     
+    const request:any = {     
+     
     }
-    const options = {
-        method: 'GET',
-       // url: 'https://free-nba.p.rapidapi.com/players?page='+startingPage+'&per_page='+pageLimit,
-       url : 'https://free-nba.p.rapidapi.com/teams?page=0',
-        headers: {
-          'X-RapidAPI-Key': 'c500b4106dmshbc6109fd0ccf3eep144eb6jsn9c10644513a1',
-          'X-RapidAPI-Host': 'free-nba.p.rapidapi.com'
-        }
-      };
-      
-      axios.request(options).then(function (response:any) {
-        setPlayerDetails(response.data);
-        console.log('response',response.data);
-      }).catch(function (error:any) {
-          console.error(error);
-      });
+      //dispatch(getPlayersDetails(request))
   }
 
   return (
@@ -105,8 +92,6 @@ const Navbar=(e:any)=> {
     </header>
     
   );
-
-<DisplayDetails playerDetails={playerDetails} />
 }
 
 

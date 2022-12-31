@@ -5,11 +5,9 @@ import ReactDOM from 'react-dom';
 // import './i18n/config';
 import './index.css';
 import './cssUtils/css/bootstrap.min.css';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.js'
-// import './cssUtils/css/carm-theme.css';
-// import './cssUtils/css/rapid-proposal-theme.css';
-// import './cssUtils/css/override.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+import 'bootstrap/dist/js/bootstrap';
 import App from './App';
 import { Provider } from 'react-redux';
 import { composeWithDevTools } from 'redux-devtools-extension';

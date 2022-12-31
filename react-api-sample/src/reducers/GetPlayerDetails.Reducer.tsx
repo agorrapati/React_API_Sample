@@ -7,6 +7,7 @@ const initialState = {
     data : {},
     err : null
 }
+type State = typeof initialState;
 
 const getPlayersDetails = (state = initialState , action:any) =>{
     switch(action.type){
