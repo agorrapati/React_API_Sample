@@ -1,7 +1,5 @@
-import React, { Fragment, useEffect, useState } from "react";
-import { connect , useSelector, useDispatch } from 'react-redux';
-import { RootReducerState } from '../../reducers';
-import DisplayDetails from '../DisplayDetails/DisplayDetails'
+import React  from "react";
+import { useDispatch } from 'react-redux';
 import LandingPage from "./LandingPage";
 //import getPlayersDetails from '../../actions/GetPlayerDetails.Action';
  const LoginPage = (e:any) =>{
@@ -11,4 +9,4 @@ import LandingPage from "./LandingPage";
     )
  }
 
-export default connect() (LoginPage);
+export default LoginPage;

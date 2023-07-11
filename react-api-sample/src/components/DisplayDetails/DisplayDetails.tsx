@@ -2,18 +2,20 @@ import React, { Fragment, useEffect, useState } from "react";
 import { connect, useSelector, useDispatch } from 'react-redux';
 import { RootReducerState } from '../../reducers';
 import getPlayersDetails from "../../actions/GetPlayerDetails.Action";
+import getFoodMenuDetailsOnSearch from "../../actions/GetFoodMenu";
+
+
 const DisplayDetails = (props: any) => {
     const dispatch = useDispatch();
     const playerData = useSelector((state:RootReducerState) => (state.getPlayersDetails.data));
     const [ playerDetails,setPlayerDetails ]= useState([] as any); 
+    
+    const menuList = useSelector((state:RootReducerState)=>(state.getFoodMenuDetailsOnSearch.data))
+    const [menuListObj , setMenuListObj] = useState([] as any)
 
-    // useEffect (()=>{
-    //     const request : any = {
-
-    //     }
-    //     dispatch(getPlayersDetails(request));
-    // })
- 
+    
+    
+    console.log('menuLIst' , menuList)
     console.log('playerDetails',playerDetails)
     return (
         <Fragment>
@@ -23,7 +25,7 @@ const DisplayDetails = (props: any) => {
                 
                 <div className="detail-content-section">
 
-                    <table className="table basic-table text-center">
+                    {/* <table className="table basic-table text-center">
                     <thead>
                         <tr>
                             <th>Player Name</th>
@@ -40,9 +42,16 @@ const DisplayDetails = (props: any) => {
                             <td>{item.team.division}</td>
                             <td> {item.position} </td>
                         </tr>
-                    ))};
+                    ))}
                     </tbody>
-                </table>
+                </table> */}
+
+                <div className="row">
+                    <div className="col-xs-10">
+
+                    </div>
+                   
+                </div>
             </div>
             </div>
               
@@ -51,4 +60,4 @@ const DisplayDetails = (props: any) => {
     )
 }
 
-export default connect() (DisplayDetails);
+export default connect() (DisplayDetails)

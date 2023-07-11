@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux';
-import GetPlayersDetails from './GetPlayerDetails.Reducer';
 
+//import get from './GetPlayerDetails.Reducer';
+import getFoodMenuDetailsOnSearch from './GetFoodMenuDetails.Reducer';
+import getPlayersDetails from './GetPlayerDetails.Reducer';
 const rootReducer = combineReducers({
-  getPlayersDetails:GetPlayersDetails
+  getPlayersDetails:getPlayersDetails,
+  getFoodMenuDetailsOnSearch : getFoodMenuDetailsOnSearch
+
 });
 export type RootReducerState = ReturnType<typeof rootReducer>;
 export default rootReducer;
