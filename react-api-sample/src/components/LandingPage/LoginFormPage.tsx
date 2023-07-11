@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { useSelector, useDispatch } from 'react-redux';
+import { connect, useSelector, useDispatch } from 'react-redux';
 import { RootReducerState } from '../../reducers';
 
 const LoginFormPage = (e:any) =>{
@@ -31,4 +31,4 @@ return (
  )
 }
 
-export default LoginFormPage;
+export default connect() (LoginFormPage);

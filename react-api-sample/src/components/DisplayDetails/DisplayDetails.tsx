@@ -1,54 +1,63 @@
-import React, { Fragment, useEffect } from "react";
-import { useSelector, useDispatch } from 'react-redux';
+import React, { Fragment, useEffect, useState } from "react";
+import { connect, useSelector, useDispatch } from 'react-redux';
 import { RootReducerState } from '../../reducers';
+import getPlayersDetails from "../../actions/GetPlayerDetails.Action";
+import getFoodMenuDetailsOnSearch from "../../actions/GetFoodMenu";
 
-const DisplayDetails = (props:any) =>{
+
+const DisplayDetails = (props: any) => {
     const dispatch = useDispatch();
+    const playerData = useSelector((state:RootReducerState) => (state.getPlayersDetails.data));
+    const [ playerDetails,setPlayerDetails ]= useState([] as any); 
+    
+    const menuList = useSelector((state:RootReducerState)=>(state.getFoodMenuDetailsOnSearch.data))
+    const [menuListObj , setMenuListObj] = useState([] as any)
+
+    
+    
+    console.log('menuLIst' , menuList)
+    console.log('playerDetails',playerDetails)
     return (
-       <Fragment>
-            <div className="modal fade d-block show" id="userLogin" aria-modal="true" data-keyboard="false">
-                <div className="modal-dialog ">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h4 className="modal-title">Details</h4>
-                        </div>
-                        <div className="modal-body">
-                        
-                            <table>
-                                <thead>
-                                    <tr>
-                                    <th>COLOUM1</th>
-                                    <th>COLOUM2</th>
-                                    <th>COLOUM3</th>
-                                    <th>COLOUM4</th>
-                                    </tr>
-                                    
+        <Fragment>
+            <main>
+                <div className="container">
 
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
+                
+                <div className="detail-content-section">
 
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div className="modal-footer">
-                            <div className="col-xs-6">
+                    {/* <table className="table basic-table text-center">
+                    <thead>
+                        <tr>
+                            <th>Player Name</th>
+                            <th>City</th>
+                            <th>Division</th>
+                            <th>Position</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {playerDetails!==undefined && playerDetails.length>0 && playerDetails.map((item:any)=>(
+                        <tr>
+                            <td>{item.first_name} &nbsp; {item.last_name}</td>
+                            <td>{item.team.city}</td>
+                            <td>{item.team.division}</td>
+                            <td> {item.position} </td>
+                        </tr>
+                    ))}
+                    </tbody>
+                </table> */}
 
-                            </div>
-                            <div className="col-xs-6">
-                                <a href="javascript:void(0);" className="btn-base bg-danger text-white" data-dismiss="modal" onClick={()=>props.closePopUp()}>Close</a>
-                            </div>
-                        </div>
+                <div className="row">
+                    <div className="col-xs-10">
+
                     </div>
+                   
                 </div>
             </div>
-       </Fragment>
+            </div>
+              
+            </main>
+        </Fragment>
     )
 }
 
-export default DisplayDetails;
+export default connect() (DisplayDetails)

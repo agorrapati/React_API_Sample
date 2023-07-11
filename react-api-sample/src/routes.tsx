@@ -1,21 +1,22 @@
 import  React, { Fragment }  from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch , BrowserRouter } from 'react-router-dom';
 import LandingPage from './components/LandingPage/LandingPage';
+//import LoginPage from './components/LandingPage/LoginPage-BK';
 import LoginPage from './components/LandingPage/LoginPage';
 import LoginFormPage from './components/LandingPage/LoginFormPage';
-function AppRoutes(){
+const Routes : React.FunctionComponent =() =>{
     return (
-        <Fragment >
-            <Router>
-                <Routes>
-                <Route path="/" element={<LoginPage/>} />
-                <Route path="/landing" element={<LandingPage/>} />
-                <Route path="/login" element={<LoginFormPage />} />
-                </Routes>
-            </Router>
-        </Fragment>
+        <BrowserRouter >
+            <Switch>
+                
+                <Route path="/" component={LoginPage} />
+                <Route path="/landing" component={LandingPage} />
+                <Route path="/login" component={LoginFormPage} />
+                
+            </Switch>
+        </BrowserRouter>
         
     )
 
 }
-export default AppRoutes; 
+export default Routes; 
